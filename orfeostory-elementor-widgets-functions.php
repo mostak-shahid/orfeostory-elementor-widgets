@@ -53,6 +53,11 @@ function mos_oew_ajax_scripts(){
 		'ajax_nonce' => wp_create_nonce('mos_oew_verify'),
 	);
 	wp_localize_script( 'orfeostory-elementor-widgets-ajax', 'ajax_obj', $ajax_params );
+	/*VicTheme Timeline*/
+	wp_enqueue_style( 'memoryline-front', plugins_url( 'plugins/victheme_memoryline/css/memoryline-front.css', __FILE__ ) );
+	wp_enqueue_script( 'lazylinepainter', plugins_url( 'plugins/victheme_memoryline/js/lazylinepainter.js', __FILE__ ), array('jquery') );	
+	wp_enqueue_script( 'jquery-memoryline', plugins_url( 'plugins/victheme_memoryline/js/jquery-memoryline.js', __FILE__ ), array('jquery') );
+	/*VicTheme Timeline*/
 }
 add_action( 'wp_enqueue_scripts', 'mos_oew_ajax_scripts' );
 add_action( 'admin_enqueue_scripts', 'mos_oew_ajax_scripts' );

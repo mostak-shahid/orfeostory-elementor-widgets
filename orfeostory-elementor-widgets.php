@@ -1,9 +1,15 @@
 <?php
 /*
 Plugin Name: Orfeostory Elementor Widgets
+Plugin URI: https://www.orfeostory.com/
 Description: Base of future plugin
-Version: 0.0.1
 Author: Orfeostory Team
+Author URI: https://www.orfeostory.com/
+Version: 0.0.1
+Text Domain: orfeostory-elementor-widgets
+Domain Path: /languages
+Requires at least: 3.9
+Requires PHP: 5.3
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,14 +28,15 @@ $mos_oew_options = get_option( 'mos_oew_options' );
 $plugin = plugin_basename(MOS_OEW_FILE); 
 require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'orfeostory-elementor-widgets-functions.php' );
 require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'orfeostory-elementor-widgets-settings.php' );
-//require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'custom-settings.php' );
+require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'OEW_Elementor_Widgets.php' );
 
-/*require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'plugins/update/plugin-update-checker.php');
+
+require_once ( plugin_dir_path( MOS_OEW_FILE ) . 'plugins/update/plugin-update-checker.php');
 $pluginInit = Puc_v4_Factory::buildUpdateChecker(
 	'https://raw.githubusercontent.com/mostak-shahid/update/master/orfeostory-elementor-widgets.json',
 	MOS_OEW_FILE,
 	'orfeostory-elementor-widgets'
-);*/
+);
 
 
 register_activation_hook(MOS_OEW_FILE, 'mos_oew_activate');
