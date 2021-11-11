@@ -175,13 +175,13 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'mobile_default' => [
 					'size' => 10,
 					'unit' => 'px',
-				],                
-                'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
+				],
+                */
+                'size_units' => [ 'px','%' ],
+				
+                'range' => [
+				    'px' => [
 						'min' => 0,
-						'max' => 1000,
-						'step' => 5,
 					],
 					'%' => [
 						'min' => 0,
@@ -189,9 +189,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 					],
 				],
 				'default' => [
-					'unit' => 'px',
-					'size' => 50,
-				],*/
+					'unit' => '%',
+					//'size' => 50,
+				],
 				'selectors' => [
 					'{{WRAPPER}} > .elementor-widget-container .memoryline-image' => 'width: {{SIZE}}{{UNIT}};',
 				],
@@ -239,30 +239,30 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			]
 		);
         $this->add_responsive_control(
-			'align',
+			'image-align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'left'    => [
+					'flex-row'    => [
 						'title' => __( 'Left', 'elementor' ),
 						'icon' => 'eicon-h-align-left',
 					],
-					'center' => [
+					'flex-row-reverse' => [
 						'title' => __( 'Right', 'elementor' ),
 						'icon' => 'eicon-h-align-right',
 					],
-					'right' => [
+					'flex-column' => [
 						'title' => __( 'Top', 'elementor' ),
 						'icon' => 'eicon-v-align-top',
 					],
-					'justify' => [
+					'flex-column-reverse' => [
 						'title' => __( 'Bottom', 'elementor' ),
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
 				'prefix_class' => 'elementor%s-align-',
-				'default' => '',
+				'default' => 'flex-column',
 			]
 		);
 		$this->end_controls_section();
@@ -333,7 +333,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				//echo '<dd>' . $item['list_content'] . '</dd>';
 				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="100" data-line-time="600" data-new-row="false">';
 				echo '<div class="memoryline-title" style="color:#734c5e">' . $n . '</div>';
-				echo '<div class="memoryline-text" style="color:#734c5e">';
+				echo '<div class="memoryline-text d-flex '.$settings['image-align'].'" style="color:#734c5e">';
                 echo '<div class="memoryline-image"><img src="'.$item['list_image']['url'].'" /></div>';
                 echo '<div class="memoryline-con-wrap" style="color:#734c5e">';
                 echo '<div class="memoryline-heading">'.$item['list_title'].'</div>';
