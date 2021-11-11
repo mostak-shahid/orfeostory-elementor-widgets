@@ -18,6 +18,7 @@ function mos_oew_admin_enqueue_scripts(){
 		//wp_enqueue_style( 'docs', plugins_url( 'plugins/CodeMirror/doc/docs.css', __FILE__ ) );
 		wp_enqueue_style( 'codemirror', plugins_url( 'plugins/CodeMirror/lib/codemirror.css', __FILE__ ) );
 		wp_enqueue_style( 'show-hint', plugins_url( 'plugins/CodeMirror/addon/hint/show-hint.css', __FILE__ ) );
+		wp_enqueue_style( 'abcdef', plugins_url( 'plugins/CodeMirror/theme/abcdef.css', __FILE__ ) );
 
 		wp_enqueue_script( 'codemirror', plugins_url( 'plugins/CodeMirror/lib/codemirror.js', __FILE__ ), array('jquery') );
 		wp_enqueue_script( 'css', plugins_url( 'plugins/CodeMirror/mode/css/css.js', __FILE__ ), array('jquery') );
@@ -26,8 +27,6 @@ function mos_oew_admin_enqueue_scripts(){
 		wp_enqueue_script( 'css-hint', plugins_url( 'plugins/CodeMirror/addon/hint/css-hint.js', __FILE__ ), array('jquery') );
 		wp_enqueue_script( 'javascript-hint', plugins_url( 'plugins/CodeMirror/addon/hint/javascript-hint.js', __FILE__ ), array('jquery') );
 		/*Editor*/
-
-		wp_enqueue_script( 'orfeostory-elementor-widgets-functions', plugins_url( 'js/orfeostory-elementor-widgets-functions.js', __FILE__ ), array('jquery') );
 		wp_enqueue_script( 'orfeostory-elementor-widgets-admin', plugins_url( 'js/orfeostory-elementor-widgets-admin.js', __FILE__ ), array('jquery') );
 	}
 
@@ -41,16 +40,12 @@ function mos_oew_enqueue_scripts(){
 	if (@$mos_oew_options['awesome']) {
 		wp_enqueue_style( 'font-awesome.min', plugins_url( 'fonts/font-awesome-4.7.0/css/font-awesome.min.css', __FILE__ ) );
 	}
-	wp_enqueue_style( 'orfeostory-elementor-widgets', plugins_url( 'css/orfeostory-elementor-widgets.css', __FILE__ ) );
-	wp_enqueue_script( 'orfeostory-elementor-widgets-functions', plugins_url( 'js/orfeostory-elementor-widgets-functions.js', __FILE__ ), array('jquery') );
-	wp_enqueue_script( 'orfeostory-elementor-widgets', plugins_url( 'js/orfeostory-elementor-widgets.js', __FILE__ ), array('jquery') );
 }
 add_action( 'wp_enqueue_scripts', 'mos_oew_enqueue_scripts' );
-function mos_oew_ajax_scripts(){
+function mos_oew_both_end_scripts(){
 	wp_enqueue_script( 'orfeostory-elementor-widgets-ajax', plugins_url( 'js/orfeostory-elementor-widgets-ajax.js', __FILE__ ), array('jquery') );
 	$ajax_params = array(
 		'ajax_url' => admin_url('admin-ajax.php'),
-		'ajax_nonce' => wp_create_nonce('mos_oew_verify'),
 	);
 	wp_localize_script( 'orfeostory-elementor-widgets-ajax', 'ajax_obj', $ajax_params );
 	/*VicTheme Timeline*/
@@ -58,9 +53,12 @@ function mos_oew_ajax_scripts(){
 	wp_enqueue_script( 'lazylinepainter', plugins_url( 'plugins/victheme_memoryline/js/lazylinepainter.js', __FILE__ ), array('jquery') );	
 	wp_enqueue_script( 'jquery-memoryline', plugins_url( 'plugins/victheme_memoryline/js/jquery-memoryline.js', __FILE__ ), array('jquery') );
 	/*VicTheme Timeline*/
+	wp_enqueue_style( 'orfeostory-elementor-widgets', plugins_url( 'css/orfeostory-elementor-widgets.css', __FILE__ ) );
+	wp_enqueue_script( 'orfeostory-elementor-widgets-functions', plugins_url( 'js/orfeostory-elementor-widgets-functions.js', __FILE__ ), array('jquery') );
+	wp_enqueue_script( 'orfeostory-elementor-widgets', plugins_url( 'js/orfeostory-elementor-widgets.js', __FILE__ ), array('jquery') );
 }
-add_action( 'wp_enqueue_scripts', 'mos_oew_ajax_scripts' );
-add_action( 'admin_enqueue_scripts', 'mos_oew_ajax_scripts' );
+add_action( 'wp_enqueue_scripts', 'mos_oew_both_end_scripts' );
+add_action( 'admin_enqueue_scripts', 'mos_oew_both_end_scripts' );
 function mos_oew_scripts() {
 	global $mos_oew_options;
 	if (@$mos_oew_options['css']) {

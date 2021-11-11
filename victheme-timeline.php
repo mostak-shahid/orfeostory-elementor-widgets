@@ -32,6 +32,12 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'placeholder' => __( 'https://your-link.com', 'plugin-name' ),
 			]
 		);
+        $this->add_control(
+			'hr-1',
+			[
+				'type' => Controls_Manager::DIVIDER,
+			]
+		);
 
 		$repeater = new Repeater();
 
@@ -53,6 +59,15 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				],
 			]
 		);
+        /*$repeater->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
+				'exclude' => [ 'custom' ],
+				'include' => [],
+				'default' => 'large',
+			]
+		);*/
 
 		$repeater->add_control(
 			'list_content', [
@@ -63,7 +78,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			]
 		);
 
-		$repeater->add_control(
+		/*$repeater->add_control(
 			'list_color',
 			[
 				'label' => __( 'Color', 'plugin-domain' ),
@@ -72,7 +87,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
 				],
 			]
-		);
+		);*/
 
 		$this->add_control(
 			'list',
@@ -96,9 +111,166 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->end_controls_section();
 		    
         $this->start_controls_section(
-			'style_section',
+			'image_section',
 			[
-				'label' => __( 'General', 'plugin-name' ),
+				'label' => __( 'Image', 'plugin-name' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_responsive_control( //add_responsive_control,add_control
+			'image-spacing',
+			[
+				'label' => __( 'Spacing', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+                'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				/*
+                'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				],                
+                'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],*/
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-image' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control( //add_responsive_control,add_control
+			'image-width',
+			[
+				'label' => __( 'Width (%)', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+                'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				/*
+                'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				],                
+                'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],*/
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-image' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control( //add_responsive_control,add_control
+			'image-border-radius',
+			[
+				'label' => __( 'Border Radius', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+                'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				/*
+                'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				], 
+                */
+                'size_units' => [ 'px', '%' ],
+				/*'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],*/
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-image' => 'border-radius: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+        $this->add_responsive_control(
+			'align',
+			[
+				'label' => __( 'Alignment', 'elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left'    => [
+						'title' => __( 'Left', 'elementor' ),
+						'icon' => 'eicon-h-align-left',
+					],
+					'center' => [
+						'title' => __( 'Right', 'elementor' ),
+						'icon' => 'eicon-h-align-right',
+					],
+					'right' => [
+						'title' => __( 'Top', 'elementor' ),
+						'icon' => 'eicon-v-align-top',
+					],
+					'justify' => [
+						'title' => __( 'Bottom', 'elementor' ),
+						'icon' => 'eicon-v-align-bottom',
+					],
+				],
+				'prefix_class' => 'elementor%s-align-',
+				'default' => '',
+			]
+		);
+		$this->end_controls_section();
+		    
+        $this->start_controls_section(
+			'other_section',
+			[
+				'label' => __( 'Other', 'plugin-name' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -162,9 +334,11 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="100" data-line-time="600" data-new-row="false">';
 				echo '<div class="memoryline-title" style="color:#734c5e">' . $n . '</div>';
 				echo '<div class="memoryline-text" style="color:#734c5e">';
-				echo '<img src="'.$item['list_image']['url'].'" />';
-				//echo Group_Control_Image_Size::get_attachment_image_html( $settings );
-				echo $item['list_content'];
+                echo '<div class="memoryline-image"><img src="'.$item['list_image']['url'].'" /></div>';
+                echo '<div class="memoryline-con-wrap" style="color:#734c5e">';
+                echo '<div class="memoryline-heading">'.$item['list_title'].'</div>';
+                echo '<div class="memoryline-desc">'.$item['list_content'].'</div>';
+				echo '</div>';
 				echo '</div>';
 				echo '</div>';
 				$n++;

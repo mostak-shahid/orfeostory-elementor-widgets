@@ -64,6 +64,7 @@ function mos_oew_field_css_cb( $args ) {
     var editor = CodeMirror.fromTextArea(document.getElementById("mos_oew_css"), {
       lineNumbers: true,
       mode: "text/css",
+      theme: "abcdef",
       extraKeys: {"Ctrl-Space": "autocomplete"}
     });
 	</script>
@@ -77,6 +78,7 @@ function mos_oew_field_js_cb( $args ) {
     var editor = CodeMirror.fromTextArea(document.getElementById("mos_oew_js"), {
       lineNumbers: true,
       mode: "text/css",
+      theme: "abcdef",
       extraKeys: {"Ctrl-Space": "autocomplete"}
     });
 	</script>
