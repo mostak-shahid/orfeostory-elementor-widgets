@@ -561,7 +561,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				}
 				//echo '<dt class="elementor-repeater-item-' . $item['_id'] . '">' . $n .'. '.$item['list_title'] . '</dt>';
 				//echo '<dd>' . $item['list_content'] . '</dd>';
-				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="100" data-line-time="600" data-new-row="false">';
+				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="'.$settings['drawing_dots_time_style_section'].'" data-line-time="'.$settings['drawing_line_time_style_section'].'" data-new-row="false">';
 				echo '<div class="memoryline-title">' . $n . '</div>';
 				echo '<div class="memoryline-text d-flex '.$settings['image-align'].' '.$settings['content-valign'].'">';
                 echo '<div class="memoryline-image"><img src="'.$item['list_image']['url'].'" /></div>';
