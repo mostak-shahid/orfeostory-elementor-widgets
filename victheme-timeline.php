@@ -367,7 +367,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 						'icon' => 'eicon-text-align-right',
 					],
 				],
-				'default' => 'left',
+				'default' => 'align-items-start',
 			]
 		);
         $this->add_control(
