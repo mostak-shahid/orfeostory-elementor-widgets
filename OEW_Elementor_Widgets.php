@@ -36,14 +36,13 @@ function add_elementor_widget_categories( $elements_manager ) {
 	$elements_manager->add_category(
 		'orfeostory-elements',
 		[
-			'title' => __( 'Orfeostory Elements', 'plugin-name' ),
-			'icon' => 'fa fa-plug',
+			'title' => __( 'Orfeostory Elements', 'orfeostory-elementor-widgets' ),
 		]
 	);
 	/*$elements_manager->add_category(
 		'second-category',
 		[
-			'title' => __( 'Second Category', 'plugin-name' ),
+			'title' => __( 'Second Category', 'orfeostory-elementor-widgets' ),
 			'icon' => 'fa fa-plug',
 		]
 	);*/

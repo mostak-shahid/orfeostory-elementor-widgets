@@ -27,16 +27,16 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 
 		$repeater->add_control(
 			'list_title', [
-				'label' => __( 'Title', 'plugin-domain' ),
+				'label' => __( 'Title', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'List Title' , 'plugin-domain' ),
+				'default' => __( 'List Title' , 'orfeostory-elementor-widgets' ),
 				'label_block' => true,
 			]
 		);
 		$repeater->add_control(
 			'list_image',
 			[
-				'label' => __( 'Choose Image', 'plugin-domain' ),
+				'label' => __( 'Choose Image', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -45,9 +45,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		);
 		$repeater->add_control(
 			'list_content', [
-				'label' => __( 'Content', 'plugin-domain' ),
+				'label' => __( 'Content', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => __( 'List Content' , 'plugin-domain' ),
+				'default' => __( 'List Content' , 'orfeostory-elementor-widgets' ),
 				'show_label' => false,
 			]
 		);
@@ -55,17 +55,17 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->add_control(
 			'list',
 			[
-				//'label' => __( 'Repeater List', 'plugin-domain' ),
+				//'label' => __( 'Repeater List', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				/*'default' => [
 					[
-						'list_title' => __( 'Title #1', 'plugin-domain' ),
-						'list_content' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+						'list_title' => __( 'Title #1', 'orfeostory-elementor-widgets' ),
+						'list_content' => __( 'Item content. Click the edit button to change this text.', 'orfeostory-elementor-widgets' ),
 					],
 					[
-						'list_title' => __( 'Title #2', 'plugin-domain' ),
-						'list_content' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+						'list_title' => __( 'Title #2', 'orfeostory-elementor-widgets' ),
+						'list_content' => __( 'Item content. Click the edit button to change this text.', 'orfeostory-elementor-widgets' ),
 					],
 				],*/
 				'title_field' => '{{{ list_title }}}',
@@ -86,8 +86,8 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'label' => __( 'Animate', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'false' => __( 'No', 'plugin-domain' ),
-					'true'  => __( 'Yes', 'plugin-domain' ),
+					'false' => __( 'No', 'orfeostory-elementor-widgets' ),
+					'true'  => __( 'Yes', 'orfeostory-elementor-widgets' ),
 				],
 				'default' => 'true',
 			]
@@ -95,7 +95,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'drawing_dots_time_style_section',
 			[
-				'label' => __( 'Drawing Dots Time', 'plugin-domain' ),
+				'label' => __( 'Drawing Dots Time', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 100,
 			]
@@ -103,7 +103,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'drawing_line_time_style_section',
 			[
-				'label' => __( 'Drawing Line Time', 'plugin-domain' ),
+				'label' => __( 'Drawing Line Time', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 600,
 			]
@@ -120,7 +120,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'dot_radius_style_section',
 			[
-				'label' => __( 'Dot Radius', 'plugin-domain' ),
+				'label' => __( 'Dot Radius', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 8,
 			]
@@ -128,7 +128,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'line_width_style_section',
 			[
-				'label' => __( 'Line Width', 'plugin-domain' ),
+				'label' => __( 'Line Width', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => 10,
 			]
@@ -139,9 +139,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'label' => __( 'Line Type', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'round'  => __( 'Round', 'plugin-domain' ),
-					'square' => __( 'Square', 'plugin-domain' ),
-					'butt' => __( 'Butt', 'plugin-domain' ),
+					'round'  => __( 'Round', 'orfeostory-elementor-widgets' ),
+					'square' => __( 'Square', 'orfeostory-elementor-widgets' ),
+					'butt' => __( 'Butt', 'orfeostory-elementor-widgets' ),
 				],
 				'default' => 'round',
 			]
@@ -152,9 +152,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'label' => __( 'Line Dash', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'line'  => __( 'Line', 'plugin-domain' ),
-					'dashed' => __( 'Dashed', 'plugin-domain' ),
-					'dotted' => __( 'Dotted', 'plugin-domain' ),
+					'line'  => __( 'Line', 'orfeostory-elementor-widgets' ),
+					'dashed' => __( 'Dashed', 'orfeostory-elementor-widgets' ),
+					'dotted' => __( 'Dotted', 'orfeostory-elementor-widgets' ),
 				],
 				'default' => 'line',
 			]
@@ -162,7 +162,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'line_color_style_section',
 			[
-				'label' => __( 'Line color', 'plugin-domain' ),
+				'label' => __( 'Line color', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -174,7 +174,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'dot_color_style_section',
 			[
-				'label' => __( 'Dot color', 'plugin-domain' ),
+				'label' => __( 'Dot color', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -195,7 +195,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->add_responsive_control( //add_responsive_control,add_control
 			'image-spacing',
 			[
-				'label' => __( 'Spacing', 'plugin-domain' ),
+				'label' => __( 'Spacing', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::SLIDER,
                 'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				/*
@@ -235,7 +235,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->add_responsive_control( //add_responsive_control,add_control
 			'image-width',
 			[
-				'label' => __( 'Width (%)', 'plugin-domain' ),
+				'label' => __( 'Width (%)', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::SLIDER,
                 'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				/*
@@ -275,7 +275,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->add_responsive_control( //add_responsive_control,add_control
 			'image-border-radius',
 			[
-				'label' => __( 'Border Radius', 'plugin-domain' ),
+				'label' => __( 'Border Radius', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::SLIDER,
                 'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				/*
@@ -380,9 +380,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'label' => __( 'Vertical Alignment', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'align-items-start'  => __( 'Top', 'plugin-domain' ),
-					'align-items-center' => __( 'Middle', 'plugin-domain' ),
-					'align-items-end' => __( 'Bottom', 'plugin-domain' ),
+					'align-items-start'  => __( 'Top', 'orfeostory-elementor-widgets' ),
+					'align-items-center' => __( 'Middle', 'orfeostory-elementor-widgets' ),
+					'align-items-end' => __( 'Bottom', 'orfeostory-elementor-widgets' ),
 				],
 				'default' => 'align-items-start',
 			]
@@ -424,7 +424,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->add_responsive_control( //add_responsive_control,add_control
 			'title_style_spacing',
 			[
-				'label' => __( 'Spacing', 'plugin-domain' ),
+				'label' => __( 'Spacing', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::SLIDER,
                 'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				/*
@@ -464,7 +464,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'title_style_color',
 			[
-				'label' => __( 'Color', 'plugin-domain' ),
+				'label' => __( 'Color', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -479,7 +479,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_style_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
+				'label' => __( 'Typography', 'orfeostory-elementor-widgets' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-heading',
 			]
@@ -488,7 +488,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'title_style_text_shadow',
-				'label' => __( 'Text Shadow', 'plugin-domain' ),
+				'label' => __( 'Text Shadow', 'orfeostory-elementor-widgets' ),
 				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-heading',
                 'separator' => 'after',
 			]
@@ -504,7 +504,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
         $this->add_control(
 			'description_style_color',
 			[
-				'label' => __( 'Color', 'plugin-domain' ),
+				'label' => __( 'Color', 'orfeostory-elementor-widgets' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
 					'type' => Scheme_Color::get_type(),
@@ -519,7 +519,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'description_style_typography',
-				'label' => __( 'Typography', 'plugin-domain' ),
+				'label' => __( 'Typography', 'orfeostory-elementor-widgets' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-desc',
 			]
@@ -528,7 +528,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'description_style_text_shadow',
-				'label' => __( 'Text Shadow', 'plugin-domain' ),
+				'label' => __( 'Text Shadow', 'orfeostory-elementor-widgets' ),
 				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-desc',
                 'separator' => 'after',
 			]
