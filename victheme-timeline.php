@@ -23,22 +23,6 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'url',
-			[
-				'label' => __( 'URL to embed', 'plugin-name' ),
-				'type' => Controls_Manager::TEXT,
-				'input_type' => 'url',
-				'placeholder' => __( 'https://your-link.com', 'plugin-name' ),
-			]
-		);
-        $this->add_control(
-			'hr-1',
-			[
-				'type' => Controls_Manager::DIVIDER,
-			]
-		);
-
 		$repeater = new Repeater();
 
 		$repeater->add_control(
@@ -59,16 +43,6 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				],
 			]
 		);
-        /*$repeater->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name' => 'thumbnail', // // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
-				'exclude' => [ 'custom' ],
-				'include' => [],
-				'default' => 'large',
-			]
-		);*/
-
 		$repeater->add_control(
 			'list_content', [
 				'label' => __( 'Content', 'plugin-domain' ),
@@ -78,21 +52,10 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 			]
 		);
 
-		/*$repeater->add_control(
-			'list_color',
-			[
-				'label' => __( 'Color', 'plugin-domain' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'color: {{VALUE}}'
-				],
-			]
-		);*/
-
 		$this->add_control(
 			'list',
 			[
-				'label' => __( 'Repeater List', 'plugin-domain' ),
+				//'label' => __( 'Repeater List', 'plugin-domain' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				/*'default' => [
@@ -111,7 +74,119 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 		$this->end_controls_section();
 		    
         $this->start_controls_section(
-			'image_section',
+			'general_style_section',
+			[
+				'label' => __( 'General', 'plugin-name' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);        
+        $this->add_control(
+			'animate_style_section',
+			[
+				'label' => __( 'Animate', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'false' => __( 'No', 'plugin-domain' ),
+					'true'  => __( 'Yes', 'plugin-domain' ),
+				],
+				'default' => 'true',
+			]
+		);
+        $this->add_control(
+			'drawing_dots_time_style_section',
+			[
+				'label' => __( 'Drawing Dots Time', 'plugin-domain' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 100,
+			]
+		);
+        $this->add_control(
+			'drawing_line_time_style_section',
+			[
+				'label' => __( 'Drawing Line Time', 'plugin-domain' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 600,
+			]
+		);
+		$this->end_controls_section();
+		    
+        $this->start_controls_section(
+			'points_style_section',
+			[
+				'label' => __( 'Points', 'plugin-name' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		); 
+        $this->add_control(
+			'dot_radius_style_section',
+			[
+				'label' => __( 'Dot Radius', 'plugin-domain' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 8,
+			]
+		);
+        $this->add_control(
+			'line_width_style_section',
+			[
+				'label' => __( 'Line Width', 'plugin-domain' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => 10,
+			]
+		);
+        $this->add_control(
+			'line_type_style_section',
+			[
+				'label' => __( 'Line Type', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'round'  => __( 'Round', 'plugin-domain' ),
+					'square' => __( 'Square', 'plugin-domain' ),
+					'butt' => __( 'Butt', 'plugin-domain' ),
+				],
+				'default' => 'round',
+			]
+		);
+        $this->add_control(
+			'line_dash_style_section',
+			[
+				'label' => __( 'Line Dash', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'line'  => __( 'Line', 'plugin-domain' ),
+					'dashed' => __( 'Dashed', 'plugin-domain' ),
+					'dotted' => __( 'Dotted', 'plugin-domain' ),
+				],
+				'default' => 'line',
+			]
+		);        
+        $this->add_control(
+			'line_color_style_section',
+			[
+				'label' => __( 'Line color', 'plugin-domain' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+                'default' => 'rgba(115,76,94,0.5)',
+			]
+		);   
+        $this->add_control(
+			'dot_color_style_section',
+			[
+				'label' => __( 'Dot color', 'plugin-domain' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+                'default' => '#734c5e',
+			]
+		);
+        $this->end_controls_section();
+		    
+        $this->start_controls_section(
+			'image_style_section',
 			[
 				'label' => __( 'Image', 'plugin-name' ),
 				'tab' => Controls_Manager::TAB_STYLE,
@@ -238,7 +313,7 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				],
 			]
 		);
-        $this->add_responsive_control(
+        $this->add_control(
 			'image-align',
 			[
 				'label' => __( 'Alignment', 'elementor' ),
@@ -261,57 +336,212 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 						'icon' => 'eicon-v-align-bottom',
 					],
 				],
-				'prefix_class' => 'elementor%s-align-',
 				'default' => 'flex-column',
 			]
 		);
 		$this->end_controls_section();
 		    
         $this->start_controls_section(
-			'other_section',
+			'content_style_section',
 			[
-				'label' => __( 'Other', 'plugin-name' ),
+				'label' => __( 'Content', 'plugin-name' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
+        $this->add_control(
+			'content-align',
+			[
+				'label' => __( 'Alignment', 'elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left'    => [
+						'title' => __( 'Left', 'elementor' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'elementor' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justify', 'elementor' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'default' => 'left',
+			]
+		);
+        $this->add_control(
+			'content-valign',
+			[
+				'label' => __( 'Vertical Alignment', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'align-items-start'  => __( 'Top', 'plugin-domain' ),
+					'align-items-center' => __( 'Middle', 'plugin-domain' ),
+					'align-items-end' => __( 'Bottom', 'plugin-domain' ),
+				],
+				'default' => 'align-items-start',
+			]
+		);
+        
 		$this->add_control(
-			'padding_style_tab',
+			'content-padding',
 			[
 				'label' => __( 'Padding', 'elementor' ),
 				'label_block' => true,
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} > .elementor-widget-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-con-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
 		$this->add_control(
-			'margin_style_tab',
+			'content-margin',
 			[
 				'label' => __( 'Margin', 'elementor' ),
 				'label_block' => true,
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} > .elementor-widget-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-con-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
+        $this->add_control(
+			'title_style_heading',
+			[
+				'label' => __( 'Title', 'plugin-name' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+        
+		$this->add_responsive_control( //add_responsive_control,add_control
+			'title_style_spacing',
+			[
+				'label' => __( 'Spacing', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+                'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				/*
+                'desktop_default' => [
+					'size' => 30,
+					'unit' => 'px',
+				],
+				'tablet_default' => [
+					'size' => 20,
+					'unit' => 'px',
+				],
+				'mobile_default' => [
+					'size' => 10,
+					'unit' => 'px',
+				], 
+                'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],*/
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-heading' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+        $this->add_control(
+			'title_style_color',
+			[
+				'label' => __( 'Color', 'plugin-domain' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-heading' => 'color: {{VALUE}}',
+				],
+			]
+		);
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'title_style_typography',
+				'label' => __( 'Typography', 'plugin-domain' ),
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-heading',
+			]
+		);
+        $this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'title_style_text_shadow',
+				'label' => __( 'Text Shadow', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-heading',
+                'separator' => 'after',
+			]
+		);        
+        $this->add_control(
+			'description_style_heading',
+			[
+				'label' => __( 'Description', 'plugin-name' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+        $this->add_control(
+			'description_style_color',
+			[
+				'label' => __( 'Color', 'plugin-domain' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} > .elementor-widget-container .memoryline-desc' => 'color: {{VALUE}}',
+				],
+			]
+		);
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'description_style_typography',
+				'label' => __( 'Typography', 'plugin-domain' ),
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-desc',
+			]
+		);
+        $this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'description_style_text_shadow',
+				'label' => __( 'Text Shadow', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} > .elementor-widget-container .memoryline-desc',
+                'separator' => 'after',
+			]
+		); 
 		$this->end_controls_section();
 
 	}
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
-
-		//$html = wp_oembed_get( $settings['url'] );
-
 		echo '<div class="mos-memoryline-wrapper">';
-
-		//echo ( $html ) ? $html : $settings['url'];
         if ( sizeof($settings['list']) ) {
-			echo '<div class="memoryline_section memoryline-simple mos_row memoryline-elements memoryline-connector" data-animation="true" data-line-time="600" data-line-color="rgba(115,76,94,0.5)" data-line-width="10" data-line-dash="dotted" data-line-offset-y="2" data-dot-time="100" data-dot-radius="8" data-dot-color="#734c5e" data-line-type="round">';
+			echo '<div class="memoryline_section memoryline-simple mos_row memoryline-elements memoryline-connector" data-animation="'.$settings['animate_style_section'].'" data-line-time="'.$settings['drawing_line_time_style_section'].'" data-line-color="'.$settings['line_color_style_section'].'" data-line-width="'.$settings['line_width_style_section'].'" data-line-dash="'.$settings['line_dash_style_section'].'" data-line-offset-y="2" data-dot-time="'.$settings['drawing_dots_time_style_section'].'" data-dot-radius="'.$settings['dot_radius_style_section'].'" data-dot-color="'.$settings['dot_color_style_section'].'" data-line-type="'.$settings['line_type_style_section'].'">';
 			$n = 1;
 			$oleft = 1;
 			$oright = 4;
@@ -332,10 +562,10 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				//echo '<dt class="elementor-repeater-item-' . $item['_id'] . '">' . $n .'. '.$item['list_title'] . '</dt>';
 				//echo '<dd>' . $item['list_content'] . '</dd>';
 				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="100" data-line-time="600" data-new-row="false">';
-				echo '<div class="memoryline-title" style="color:#734c5e">' . $n . '</div>';
-				echo '<div class="memoryline-text d-flex '.$settings['image-align'].'" style="color:#734c5e">';
+				echo '<div class="memoryline-title">' . $n . '</div>';
+				echo '<div class="memoryline-text d-flex '.$settings['image-align'].' '.$settings['content-valign'].'">';
                 echo '<div class="memoryline-image"><img src="'.$item['list_image']['url'].'" /></div>';
-                echo '<div class="memoryline-con-wrap" style="color:#734c5e">';
+                echo '<div class="memoryline-con-wrap text-'.$settings['content-align'].'">';
                 echo '<div class="memoryline-heading">'.$item['list_title'].'</div>';
                 echo '<div class="memoryline-desc">'.$item['list_content'].'</div>';
 				echo '</div>';

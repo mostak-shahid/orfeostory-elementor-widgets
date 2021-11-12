@@ -404,13 +404,33 @@
 }
 
 /*Flex direction*/
+/*Text Alignment*/
+.text-justify {
+    text-align: justify !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/*Text Alignment*/
 /*mos-memoryline*/
 .mos-memoryline-wrapper .memoryline-image {
     overflow: hidden;
 }
-.mos-memoryline-wrapper .memoryline-con-wrap{
-    flex: 1;   
+
+.mos-memoryline-wrapper .memoryline-con-wrap {
+    flex: 1;
 }
+
 @media (min-width: 768px) {
     .mos-col-2 {
         width: 50%;
