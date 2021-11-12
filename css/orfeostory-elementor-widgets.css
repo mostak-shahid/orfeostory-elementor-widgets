@@ -472,3 +472,28 @@
         margin-right: 12.5%;
     }
 }
+/*Dashboard CSS*/
+#mos-oew-dashboard>div{
+    width: 100%;
+    max-width: 992px;
+}
+#mos-oew-dashboard .unit{
+    width: 33.33333333%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#mos-oew-dashboard img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    #mos-oew-dashboard>div{
+        flex-direction: column;
+    }
+    #mos-oew-dashboard .unit{
+        width: 100%;
+        text-align: left!important;
+    }
+}
+/*Dashboard CSS*/

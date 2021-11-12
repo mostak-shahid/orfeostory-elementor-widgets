@@ -39,8 +39,47 @@ function mos_oew_section_dash_start_cb( $args ) {
   global $mos_oew_options;
 	?>
 	<div id="mos-oew-dashboard" class="tab-con <?php if($data['active_tab'] == 'dashboard') echo 'active';?>">
-		<?php var_dump($mos_oew_options) ?>
-
+		<?php //var_dump($mos_oew_options) ?>
+        <div class="d-flex align-items-center">
+            <div class="unit text-right">
+                <div class="wrap">
+                    <h3>iOS App Development</h3>
+                    <p>Our developers can build iOS apps with stylish UIs, intuitive app control features, and clear partition layouts, displaying all elements correctly in rather small mobile app screens.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/ios-mobile-app-development-singapore/" target="_blank">Discover More</a>
+                </div>
+                <div class="wrap">
+                    <h3>Android App Development</h3>
+                    <p>Our android app development team can solve all sorts of compatibility issues, including devices and OS versions to build a mobile app that wins the competition.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/android-mobile-app-development-singapore/" target="_blank">Discover More</a>
+                </div>
+                <div class="wrap">
+                    <h3>Hybrid App Development</h3>
+                    <p>Deploying on multiple platforms, hybrid apps are built rapidly to accommodate customers’ time and budget while maintaining a high focus on user experience.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/hybrid-mobile-app-development-singapore/" target="_blank">Discover More</a>
+                </div>
+            </div>
+            <div class="unit text-center">                
+                <a href="https://www.orfeostory.com/" target="_blank" style="display:inline-block;margin-bottom:20px"><img src="<?php echo plugins_url( 'images/logo.png', __FILE__ ) ?>" alt=""></a> 
+                <img src="<?php echo plugins_url( 'images/mobile_app_development.gif', __FILE__ ) ?>" alt="">                
+            </div>
+            <div class="unit">
+                <div class="wrap">
+                    <h3>Web App Development</h3>
+                    <p>Orfeostory's app development team has a proven record of building successful web apps with the features and benefits, closest to those of native mobile apps.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/web-app-development-singapore/" target="_blank">Discover More</a>
+                </div>
+                <div class="wrap">
+                    <h3>E-Commerce App Development</h3>
+                    <p>E-Commerce apps are more than just buying and selling tools, a truth that our mobile app developers have brought into practice for many businesses in Singapore.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/e-commerce-app-development-singapore/" target="_blank">Discover More</a>
+                </div>
+                <div class="wrap">
+                    <h3>Mobile App Maintenance</h3>
+                    <p>People are constantly on their phones, which means downtime, or bugs are the last things you want for your company. Our maintenance services enable your users to a smooth and robust experience. Let us do the dirty work, we got it...we promise.</p>
+                    <a class="icon_link " href="https://www.orfeostory.com/mobile-app-maintenance-service-singapore/" target="_blank">Discover More</a>
+                </div>
+            </div>
+        </div>
 	<?php
 }
 function mos_oew_section_scripts_start_cb( $args ) {
