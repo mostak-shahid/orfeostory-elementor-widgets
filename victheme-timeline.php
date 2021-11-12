@@ -354,21 +354,17 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				'label' => __( 'Alignment', 'elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'left'    => [
+					'align-items-start'    => [
 						'title' => __( 'Left', 'elementor' ),
 						'icon' => 'eicon-text-align-left',
 					],
-					'center' => [
+					'align-items-center' => [
 						'title' => __( 'Center', 'elementor' ),
 						'icon' => 'eicon-text-align-center',
 					],
-					'right' => [
+					'align-items-end' => [
 						'title' => __( 'Right', 'elementor' ),
 						'icon' => 'eicon-text-align-right',
-					],
-					'justify' => [
-						'title' => __( 'Justify', 'elementor' ),
-						'icon' => 'eicon-text-align-justify',
 					],
 				],
 				'default' => 'left',
@@ -563,9 +559,9 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				//echo '<dd>' . $item['list_content'] . '</dd>';
 				echo '<div id="'.$item['_id'].'" class="memoryline-content mos-col-3 '.$oclass.'" data-dot-direction="'.$direction.'" data-dot-time="'.$settings['drawing_dots_time_style_section'].'" data-line-time="'.$settings['drawing_line_time_style_section'].'" data-new-row="false">';
 				echo '<div class="memoryline-title">' . $n . '</div>';
-				echo '<div class="memoryline-text d-flex '.$settings['image-align'].' '.$settings['content-valign'].'">';
+				echo '<div class="memoryline-text d-flex '.$settings['image-align'].' '.$settings['content-valign'].' '.$settings['content-align'].'">';
                 echo '<div class="memoryline-image"><img src="'.$item['list_image']['url'].'" /></div>';
-                echo '<div class="memoryline-con-wrap text-'.$settings['content-align'].'">';
+                echo '<div class="memoryline-con-wrap">';
                 echo '<div class="memoryline-heading">'.$item['list_title'].'</div>';
                 echo '<div class="memoryline-desc">'.$item['list_content'].'</div>';
 				echo '</div>';
