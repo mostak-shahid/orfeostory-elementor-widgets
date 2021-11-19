@@ -547,11 +547,11 @@ class VicTheme_Timeline_Widget extends Widget_Base {
 				if ($n == $oleft) {
 					$oclass= 'mos-col-offset-3-2';
 					$direction = 'forward';
-					$oleft+6;
+					$oleft = $oleft+6;
 				} elseif ($n == $oright) {
 					$oclass= 'mos-col-offset-right-3-2';
 					$direction = 'reverse';
-					$oright+6;
+					$oright = $oright+6;
 				} else {
 					$oclass= '';
 				}
